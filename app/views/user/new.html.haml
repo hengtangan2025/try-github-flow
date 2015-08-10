@@ -1,0 +1,11 @@
+#session
+  = form_tag('/user/create', mothed: :post)  do 
+    / - if @user.errors.any?
+    /   %div#error_explanation
+    /     %h2= pluralize(@user.errors.count, "error")
+    /     %ul
+    /       - @user.errors.full_messages.each do |message|
+    /         %li= message
+    = text_field_tag 'sfz'
+    = text_field_tag 'name'
+    = submit_tag 'Next'
