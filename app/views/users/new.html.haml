@@ -1,0 +1,10 @@
+#session
+  = form_for User.new do |f|
+    .field
+      = f.label '身份证号'
+      = f.text_field 'shen_fen_zheng'
+    .field
+      = f.label '名字'
+      = f.text_field 'name'
+    .field
+      = f.submit 'Next'

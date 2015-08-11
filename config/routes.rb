@@ -6,15 +6,16 @@ Rails.application.routes.draw do
 
   get "/szq" => "szq_shan#index"
 
-  get "/user/new" => "user#new"
+  resources :users do
+    member do
+      get 'continue'
+    end
 
-  post "/user/create" => "user#create"
+    collection do
+      get 'success'
+    end
+  end
 
-  post "/user/update" => "user#update"
-
-  get "/user/continue" => "user#continue"
-
-  get "/user/success" => "user#success"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
