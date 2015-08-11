@@ -1,10 +1,10 @@
 #continue
   = form_for @user, :method => :put do |f|
     .field
-      = f.fabel '手机号'
+      = f.label '手机号'
       = f.text_field 'tel'
     .field
-      = f.fabel '地址'
+      = f.label '地址'
       = f.text_field 'address'
     .field
       = f.submit 'Next'
