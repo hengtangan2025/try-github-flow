@@ -1,6 +1,6 @@
 describe "the signin process", :type => :feature do
   it "创建新用户" do
-    @user = User.create!(:sfz => 123456789123456789, :name => 'bob', :tel => '12345678900', :address => 'qazwsxedcrfv')
+    @user = User.create!(:shen_fen_zheng => 123456789123456789, :name => 'bob', :tel => '12345678900', :address => 'qazwsxedcrfv')
     @user.valid?
   end
 
@@ -8,7 +8,7 @@ describe "the signin process", :type => :feature do
     visit '/user/new'
 
     within("#session") do
-      fill_in 'sfz', :with => '332526199306269857'
+      fill_in 'shen_fen_zheng', :with => '332526199306269857'
       fill_in 'name', :with => 'bob'
     end
     click_button 'Next'
@@ -26,7 +26,7 @@ describe "the signin process", :type => :feature do
     visit '/user/new'
 
     within("#session") do
-      fill_in 'sfz', :with => '33252619930626985'
+      fill_in 'shen_fen_zheng', :with => '33252619930626985'
       fill_in 'name', :with => 'bob'
     end
     click_button 'Next'
@@ -38,7 +38,7 @@ describe "the signin process", :type => :feature do
     visit '/user/new'
 
     within("#session") do
-      fill_in 'sfz', :with => '332526199306269855'
+      fill_in 'shen_fen_zheng', :with => '332526199306269855'
       fill_in 'name', :with => 'bobqaz'
     end
     click_button 'Next'
@@ -50,11 +50,11 @@ describe "the signin process", :type => :feature do
     visit '/user/new'
 
     within("#session") do
-      fill_in 'sfz', :with => '332526199306269789'
+      fill_in 'shen_fen_zheng', :with => '332526199306269789'
       fill_in 'name', :with => 'bob'
     end
     click_button 'Next'
-    
+
 
     within("#continue") do
       fill_in 'tel', :with => '1472583'
@@ -69,11 +69,11 @@ describe "the signin process", :type => :feature do
     visit '/user/new'
 
     within("#session") do
-      fill_in 'sfz', :with => '332526199306269123'
+      fill_in 'shen_fen_zheng', :with => '332526199306269123'
       fill_in 'name', :with => 'bob'
     end
     click_button 'Next'
-    
+
 
     within("#continue") do
       fill_in 'tel', :with => '14725836900'
