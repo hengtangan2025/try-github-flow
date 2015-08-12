@@ -116,4 +116,21 @@ describe "the signin process", :type => :feature do
     expect(user.tel).to eq(nil)
     expect(user.address).to eq(nil)
   end
+
+  it "增加公司信息" do
+    expect{
+      @name    = 'lykj'
+      @address = 'jinqiuguojidasha904'
+      visit "/companies"
+
+      click_button '添加信息'
+
+      within("#new") do
+        fill_in 'company[name]', :with => @name
+        fill_in 'company[address]', :with => @address
+      end
+      click_button '确定'
+    }.to change{User.count}.by(1)
+  end
+
 end
