@@ -1,10 +1,5 @@
 #session
-  = form_for User.new do |f|
-    .field
-      = f.label '身份证号'
-      = f.text_field 'shen_fen_zheng'
-    .field
-      = f.label '名字'
-      = f.text_field 'name'
-    .field
-      = f.submit 'Next'
+  = simple_form_for User.new do |f|
+    = f.input 'shen_fen_zheng'
+    = f.input 'name', prompt: "Select your age"
+    = f.submit 'Next'
