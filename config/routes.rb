@@ -16,7 +16,13 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :companies 
+  resources :companies do
+    resources :teams
+  end
+
+  resources :companies do
+    resources :members
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.

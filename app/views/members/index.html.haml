@@ -1,0 +1,20 @@
+#member_list
+  %h1 职员信息列表
+  %div
+    - @members.each do |member|
+      %span
+        姓名:
+        = member.name
+        身份证号:
+        = member.shen_fen_zheng
+        手机号
+        = member.tel
+        = member.id
+/       %h4.list_action
+/         %p
+/           = button_to '查看信息', "/companies/#{company.id}", :method => :get
+/         %tr
+/           = button_to '修改信息', "/companies/#{company.id}/edit", :method => :get
+/         %td
+/           = button_to '删除', company, :confirm => 'Are you sure?', :method => :delete
+/ = button_to '添加信息', "/companies/new", :method => :get

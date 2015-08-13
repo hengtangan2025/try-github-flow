@@ -1,0 +1,8 @@
+#show
+  公司名称:
+  = @company.name
+  地址:
+  = @company.address
+  %h3
+    = link_to '查看小组信息', "/companies/#{@company.id}/teams"
+    = link_to '查看员工信息', "/companies/#{@company.id}/members"
