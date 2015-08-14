@@ -10,11 +10,12 @@
         手机号
         = member.tel
         = member.id
-/       %h4.list_action
-/         %p
-/           = button_to '查看信息', "/companies/#{company.id}", :method => :get
-/         %tr
-/           = button_to '修改信息', "/companies/#{company.id}/edit", :method => :get
-/         %td
-/           = button_to '删除', company, :confirm => 'Are you sure?', :method => :delete
-/ = button_to '添加信息', "/companies/new", :method => :get
+        = member.teams.name
+      %h4.list_action
+        %p
+          = button_to '查看信息', "/companies/#{@company_id}/members/#{member.id}", :method => :get
+        %tr
+          = button_to '修改信息', "/companies/#{@company_id}/members/#{member.id}/edit", :method => :get
+        %td
+          = button_to '删除', "/companies/#{@company_id}/members/#{member.id}", :confirm => 'Are you sure?', :method => :delete
+= button_to '添加信息', "/companies/#{@company_id}/members/new", :method => :get

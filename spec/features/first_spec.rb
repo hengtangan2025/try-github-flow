@@ -139,7 +139,9 @@ describe "the signin process", :type => :feature do
     expect{
       visit "/companies"
 
-      click_button '删除'
+      within("#company_list") do
+        click_button '删除'
+      end
 
       expect(page).to have_css "#company_list"
     }.to change{Company.count}.by(-1)
