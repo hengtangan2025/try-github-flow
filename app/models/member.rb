@@ -12,4 +12,7 @@ class Member
   validates :tel, 
     length: {is: 11},
     format: { with: %r{\d[0-9]}, message: "手机号必须是 11 为数字"}
+
+  belongs_to :company
+  has_and_belongs_to_many :teams
 end

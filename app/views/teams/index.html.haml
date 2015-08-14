@@ -6,11 +6,11 @@
         小组名称:
         = team.name
         = team.id
-/       %h4.list_action
-/         %p
-/           = button_to '查看信息', team, :method => :get
-/         %tr
-/           = button_to '修改信息', "/teams/#{team.id}/edit", :method => :get
-/         %td
-/           = button_to '删除', team, :confirm => 'Are you sure?', :method => :delete
-= button_to '添加信息', "/teams/new", :method => :get
+      %h4.list_action
+        %p
+          = button_to '查看信息',"/companies/#{@company_id}/teams/#{team.id}", :method => :get
+        %tr
+          = button_to '修改信息',"/companies/#{@company_id}/teams/#{team.id}/edit", :method => :get
+        %hd
+          = button_to '删除',"/companies/#{@company_id}/teams/#{team.id}", :confirm => 'Are you sure?', :method => :delete
+= button_to '添加信息', "/companies/#{@company_id}/teams/new", :method => :get
