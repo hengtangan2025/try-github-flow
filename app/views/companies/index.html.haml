@@ -9,10 +9,7 @@
         = company.address
         = company.id
       %h4.list_action
-        %p
-          = button_to '查看信息', "/companies/#{company.id}", :method => :get
-        %tr
-          = button_to '修改信息', "/companies/#{company.id}/edit", :method => :get
-        %td
-          = button_to '删除', company, :confirm => 'Are you sure?', :method => :delete
-= button_to '添加信息', "/companies/new", :method => :get
+        = link_to '查看信息', "/companies/#{company.id}",:class => "show"
+        = link_to '修改信息', "/companies/#{company.id}/edit", :method => :get, :class => "update"
+        = link_to '删除', company, :method => :delete, :class => "delete"
+= link_to '添加信息', "/companies/new", :method => :get

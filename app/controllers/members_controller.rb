@@ -1,29 +1,24 @@
 class MembersController < ApplicationController
+  before_action :find_company
+
   def index
-    @company_id = params[:company_id]
-    @members = Member.all
+    @members = @company.members
   end
 
   def new
-    @company = Company.find(params[:company_id])
-    @company_id = params[:company_id]
-    @member = Member.new
+    @member = @company.members.new
   end
 
   def show
-    @company_id = params[:company_id]
-    @member = Member.find(params[:id])
+    @member = @company.members.find(params[:id])
   end
 
   def edit
-    @member = Member.find(params[:id])
-    @company_id = params[:company_id]
-    @company = Company.find(params[:company_id])
+    @member = @company.members.find(params[:id])
   end
 
   def create
-    @company_id = params[:company_id]
-    @member = Member.new(member_params)
+    @member = @company.members.new(member_params)
     if @member.save 
       redirect_to "/companies/#{@company_id}/members"
     else
@@ -32,23 +27,25 @@ class MembersController < ApplicationController
   end
 
   def update
-    @company = Company.find(params[:company_id])
-    @company_id = params[:company_id]
-    @member = Member.find(params[:id])
+    @member = @company.members.find(params[:id])
     @member.update(member_params)
     redirect_to "/companies/#{@company_id}/members"
   end
 
   def destroy
-    @company_id = params[:company_id]
-    @member = Member.find(params[:id])
+    @member = @company.members.find(params[:id])
     @member.destroy
     redirect_to "/companies/#{@company_id}/members"
   end
 
   private
+    def find_company
+      @company = Company.find(params[:company_id])
+      @company_id = params[:company_id]
+    end
+
     def member_params
-      params.require(:member).permit(:shen_fen_zheng, :name, :tel)
+      params.require(:member).permit(:shen_fen_zheng, :name, :tel, :team_ids => [], :location_attributes => [:id, :name, :_destroy])
     end
 
 end

@@ -4,13 +4,10 @@
     - @teams.each do |team|
       %span
         小组名称:
-        = team.name
+        = team.team_name
         = team.id
       %h4.list_action
-        %p
-          = button_to '查看信息',"/companies/#{@company_id}/teams/#{team.id}", :method => :get
-        %tr
-          = button_to '修改信息',"/companies/#{@company_id}/teams/#{team.id}/edit", :method => :get
-        %hd
-          = button_to '删除',"/companies/#{@company_id}/teams/#{team.id}", :confirm => 'Are you sure?', :method => :delete
-= button_to '添加信息', "/companies/#{@company_id}/teams/new", :method => :get
+        = link_to '查看信息',"/companies/#{@company_id}/teams/#{team.id}", :class => "show"
+        = link_to '修改信息',"/companies/#{@company_id}/teams/#{team.id}/edit", :method => :get, :class => "update"
+        = link_to '删除',"/companies/#{@company_id}/teams/#{team.id}", :method => :delete, :class => "delete"
+  = link_to '添加信息', "/companies/#{@company_id}/teams/new", :method => :get

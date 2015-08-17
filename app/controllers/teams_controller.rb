@@ -1,30 +1,24 @@
 class TeamsController < ApplicationController
+  before_action :find_company
   def index
-    @company_id = params[:company_id]
-    @teams = Team.all
+    @teams = @company.teams.all
   end
 
   def show
-    @company_id = params[:company_id]
-    @team = Team.find(params[:id])
+    @team = @company.teams.find(params[:id])
   end
 
   def new
-    @company = Company.find(params[:company_id])
-    @company_id = params[:company_id]
-    @team = Team.new
+    @team = @company.teams.new
   end
 
   def edit
-    @team = Team.find(params[:id])
-    @company_id = params[:company_id]
-    @company = Company.find(params[:company_id])
+    @team = @company.teams.find(params[:id])
   end
 
   def create
-    @company_id = params[:company_id]
-    @team = Team.new(team_params)
-    if @team.save 
+    @team = @company.teams.new(team_params)
+    if @team.save
       redirect_to "/companies/#{@company_id}/teams"
     else
       redirect_to "/companies/#{@company_id}/teams/new"
@@ -32,22 +26,24 @@ class TeamsController < ApplicationController
   end
 
   def update
-    @company = Company.find(params[:company_id])
-    @company_id = params[:company_id]
-    @team = Team.find(params[:id])
+    @team = @company.teams.find(params[:id])
     @team.update(team_params)
     redirect_to "/companies/#{@company_id}/teams"
   end 
 
   def destroy
-    @company_id = params[:company_id]
-    @team = Team.find(params[:id])
+    @team = @company.teams.find(params[:id])
     @team.destroy
     redirect_to "/companies/#{@company_id}/teams"
   end
 
   private
+    def find_company
+      @company = Company.find(params[:company_id])
+      @company_id = params[:company_id]
+    end
+
     def team_params
-      params.require(:team).permit(:name)
+      params.require(:team).permit(:team_name)
     end
 end

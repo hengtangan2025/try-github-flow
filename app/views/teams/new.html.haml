@@ -1,5 +1,4 @@
 #team_new
-  / = simple_form_for "/companies/#{@company_id}/teams", :method => :post do |f|
   = simple_form_for [@company,@team] do |f|
-    = f.input 'name'
+    = f.input 'team_name'
     = f.submit '确定'

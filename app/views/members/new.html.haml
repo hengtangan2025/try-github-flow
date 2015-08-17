@@ -3,5 +3,5 @@
     = f.input 'shen_fen_zheng'
     = f.input 'name'
     = f.input 'tel'
-    = f.association :teams, as: :check_boxes
+    = f.association :teams, label_method: :team_name, as: :check_boxes
     = f.submit '确定'

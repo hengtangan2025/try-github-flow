@@ -7,10 +7,11 @@
         = member.name
         身份证号:
         = member.shen_fen_zheng
-        手机号
+        手机号:
         = member.tel
         = member.id
-        = member.teams.name
+        所属小组:
+        = member.teams
       %h4.list_action
         %p
           = button_to '查看信息', "/companies/#{@company_id}/members/#{member.id}", :method => :get
