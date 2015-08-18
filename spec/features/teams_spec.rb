@@ -28,6 +28,7 @@ RSpec.feature "Teams", type: :feature do
     }.to change{Team.count}.by(1)
   end
 
+  #先创建一个小组的信息，再将其删除
   it "删除小组信息" do
     expect{
       @name      = 'gndf'
@@ -59,6 +60,7 @@ RSpec.feature "Teams", type: :feature do
     }.to change{Team.count}.by(0)
   end
 
+  #先创建一个小组的信息，再点击查看
   it "查看小组信息" do
     @name      = 'gndf'
     @address   = 'jinqiuguojidasha904'
@@ -87,7 +89,8 @@ RSpec.feature "Teams", type: :feature do
 
     expect(page).to have_css "#team_show"
   end
-
+  
+  #先创建一个小组的信息，再将其修改
   it "修改小组信息" do
     @name      = 'gndf'
     @address   = 'jinqiuguojidasha904'

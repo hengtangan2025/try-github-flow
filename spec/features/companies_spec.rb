@@ -16,7 +16,7 @@ RSpec.feature "Companies", type: :feature do
       click_button '确定'
     }.to change{Company.count}.by(1)
   end
-
+  #创建两个公司信息，在删除一个
   it "删除公司信息" do
     expect{
       @name1    = 'gndf'
